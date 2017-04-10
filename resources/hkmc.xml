@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+    
+<sqlMap namespace="HKMC">
+
+	<select id="test" resultClass="hmap">
+		select "field1", "field2" from "test"
+	</select>
+	
+	<select id="testParm" resultClass="hmap">
+		select "field1", "field2"
+		from   "test"
+		where  "field1" = #field1#    
+	</select>
+
+	<select id="test2" resultClass="hmap">
+		select field1, field2 from test2
+	</select>
+	
+	<select id="test2Parm" parameterClass="hmap" resultClass="hmap">
+		select field1
+		     , field2 as CAR_INFO
+		from   test2
+		where  field1 = #field1#
+	</select>	
+
+	<insert id="insertTest" parameterClass="hmap">
+		INSERT INTO test VALUES (
+		  #field1#, #field2#
+		)
+	</insert>
+
+</sqlMap>
